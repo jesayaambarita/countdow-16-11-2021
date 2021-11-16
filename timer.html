@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hitungan Mundur Ulang Tahun Hasianku</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #000 url(image/b.jpg);
+			background-attachment: fixed;
+			background-blend-mode: hard-light;
+			font-family: sans-serif;
+			background-size: cover; 
+		}
+		.container{
+			position: absolute;
+			top: 80px;
+			left: 100px;
+			right: 100px;
+			bottom: 80px;
+			background: url(image/b.jpg);
+			background-attachment: fixed; 
+			background-size: cover;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			box-shadow: 0 50px 50px rgba(0,0,0,0.5), 0 0 0 100px rgba(0,0,0,0.1);
+			border-radius: 20px;
+		}
+		.container h2{
+			text-align: center;
+			font-size: 10em;
+			line-height: 0.7em;
+			color: #ff3;
+			text-shadow: 2px 2px 5px #000;
+			margin-top: -80px;
+		}
+		.container h2 span{
+			display: block;
+			font-size: 0.2em;
+			font-weight: 300;
+			letter-spacing: 6px;
+		}
+		.contdown{
+			display: flex;
+			margin-top: 50px;
+		}
+		.contdown div{
+			position: relative;
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			background: linear-gradient(#ec1063, #960083);
+			color: #fff;
+			margin: 0 10px;
+			font-size: 3em;
+			font-weight: 500;
+		}
+		.contdown div:before{
+			content: '';
+			position: absolute;
+			bottom: -30px;
+			left: 0;
+			width: 100%;
+			height: 50px;
+			background: #ec1063;
+			color: #fff;
+			font-size: 0.35em;
+			line-height: 35px;
+			font-weight: 300;
+		}
+		.contdown #hari:before{
+			content: 'Hari';
+		}
+		.contdown #jam:before{
+			content: 'Jam';
+		}
+		.contdown #menit:before{
+			content: 'Menit';
+		}
+		.contdown #detik:before{
+			content: 'Detik';
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2><span>Hitungan Mundur Ulang Tahun Hasian</span>2022</h2>
+
+		<div class="contdown">
+			<div id="hari">NA</div>
+			<div id="jam">NA</div>
+			<div id="menit">NA</div>
+			<div id="detik">NA</div>
+		</div>
+
+	</div>
+	<script type="text/javascript">
+		var countDate = new Date('Mar 22 2022 00:00:00').getTime();
+		function newYear(){
+			var now = new Date().getTime();
+			gap = countDate - now;
+
+			var detik = 1000;
+			var menit = detik * 60;
+			var jam =  menit * 60;
+			var hari = jam * 24;
+
+			var h = Math.floor(gap / (hari));
+			var j = Math.floor((gap % (hari)) / (jam));
+			var m = Math.floor((gap % (jam))  / (menit));
+			var d = Math.floor((gap % (menit))  / (detik));
+
+			document.getElementById('hari').innerText = h;
+			document.getElementById('jam').innerText = j;
+			document.getElementById('menit').innerText = m;
+			document.getElementById('detik').innerText = d;
+
+			
+		}
+		const hitungMundur = setInterval(function(){
+				newYear();
+				if (gap < 0) {
+					clearInterval(hitungMundur);
+        teks.alert = 'SELAMAT ULANG TAHUN HASIANKU KESAYANGANKU SEMOGA PANJANG UMUR SEHAT SELALU, DI LANCARKAN STUDY NYA, MAKIN SAYANG SAMA ORANG TUA DAN SEMOGA APA YANG DISEMOGAKAN TERCAPAI..... TERAKHIR AKU SAYANG HASIAN';
+				}
+			}, 1000);
+	</script>
+</body>
+</html>
